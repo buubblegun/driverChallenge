@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class DriverChallenge {
     private static final String FILENAME = "src/coding_challenge_data_set.txt";
@@ -11,9 +9,24 @@ public class DriverChallenge {
         try {
             Map<String, Segment> dna = parseDataSet(FILENAME);
             calculateOverlaps(dna);
-            String fullSequence =  mergeSequences(dna);
+            String fullSequence = mergeSequences(dna);
             System.out.println(fullSequence);
             System.out.println("length: " + fullSequence.length());
+
+            // Check to see full sequence contains every segment
+//            int i = 0;
+//            Set<Integer> nucleotides = new HashSet<>();
+//            for (String name : dna.keySet()) {
+//                Segment seg = dna.get(name);
+//                int match = fullSequence.indexOf(seg.getSequence());
+//                if (match != -1) {
+//                    for (int j = 0; j < seg.getSequence().length(); j++) {
+//                        nucleotides.add(match + j);
+//                    }
+//                    System.out.println(name + "[" + ++i + "] detected");
+//                }
+//            }
+//            System.out.println("length: " + nucleotides.size());
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(-1);
@@ -106,15 +119,6 @@ public class DriverChallenge {
             String appendingSegment = curSegment.getSequence().substring(curSegment.backwardMatchOverlap);
             out.append(appendingSegment);
         }
-
-        // Check to see full sequence contains every segment
-//        int i = 0;
-//        for (String name : dna.keySet()) {
-//            Segment seg = dna.get(name);
-//            if (out.toString().contains(seg.getSequence())) {
-//                System.out.println(name + "[" + ++i + "] detected");
-//            }
-//        }
         return out.toString();
     }
 
