@@ -19,10 +19,13 @@ In addition to the code you wrote, we also ask for a README describing your gene
 
 >Frag_56
 ATTAGACCTG
+
 >Frag_57
 CCTGCCGGAA
+
 >Frag_58
 AGACCTGCCG
+
 >Frag_59
 GCCGGAATAC
 
